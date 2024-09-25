@@ -42,7 +42,48 @@ df=pd.read_csv("/content/Encoding Data.csv")
 df
 ```
 ![image](https://github.com/user-attachments/assets/7b8596ff-44c6-47fd-869f-c87884a1bbee)
+```
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
+pm=['Hot','Warm','Cold']
+e1=OrdinalEncoder(categories=[pm])
+e1.fit_transform(df[["ord_2"]])
+```
 
+![image](https://github.com/user-attachments/assets/2c499e18-4ddb-48d3-83be-d8ec30232b82)
+```
+df['bo2']=e1.fit_transform(df[["ord_2"]])
+df
+```
+
+![image](https://github.com/user-attachments/assets/50da8dcc-5f90-46ed-8374-997cecc491e2)
+```
+le=LabelEncoder()
+dfc=df.copy()
+dfc['ord_2']=le.fit_transform(dfc['ord_2'])
+dfc
+```
+
+![image](https://github.com/user-attachments/assets/e2cfa4c3-2bdc-414c-8049-94baec8b3143)
+```
+from sklearn.preprocessing import OneHotEncoder
+ohe=OneHotEncoder(sparse=False)
+df2=df.copy()
+enc=pd.DataFrame(ohe.fit_transform(df2[["nom_0"]]))
+
+```
+
+![image](https://github.com/user-attachments/assets/e4d73d08-be72-4377-9d1d-1fdb0d6b7efc)
+```
+df2=pd.concat([df2,enc],axis=1)
+df2
+```
+
+![image](https://github.com/user-attachments/assets/279db00e-0e67-4928-8147-f488f53e5c3c)
+```
+pd.get_dummies(df2,columns=["nom_0"])
+```
+
+![image](https://github.com/user-attachments/assets/1ff2d9bc-8d57-4609-9480-66b44eab81b7)
 ```
 be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
@@ -51,6 +92,27 @@ dfb1=df.copy()
 dfb
 ```
 ![image](https://github.com/user-attachments/assets/66790f66-9262-45ea-a19a-1e0cd24f30c0)
+```
+pip install --upgrade category_encoders
+```
+
+![image](https://github.com/user-attachments/assets/1d9cec81-a50d-45ad-b8bc-c41b72d1f3b1)
+```
+from category_encoders import BinaryEncoder
+df=pd.read_csv("/content/data.csv")
+df
+```
+
+![image](https://github.com/user-attachments/assets/6be026a8-0c5c-4b3c-a28d-0c2c5e6bb130)
+```
+be=BinaryEncoder()
+nd=be.fit_transform(df['Ord_2'])
+dfb=pd.concat([df,nd],axis=1)
+dfb1=df.copy()
+dfb
+```
+
+![image](https://github.com/user-attachments/assets/e7aa6cc5-b07f-44d2-a188-02c9dd0dd93f)
 ```
 from category_encoders import TargetEncoder
 te=TargetEncoder()
