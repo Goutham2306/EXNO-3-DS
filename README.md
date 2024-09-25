@@ -31,8 +31,114 @@ We use this categorical data encoding technique when the features are nominal(do
 • Yeojohnson method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
-# RESULT:
-       # INCLUDE YOUR RESULT HERE
+```
+Developed by : Goutham.K
+Reg No : 212223110019
+```
 
+```python
+import pandas as pd
+df=pd.read_csv("/content/Encoding Data.csv")
+df
+```
+![image](https://github.com/user-attachments/assets/7b8596ff-44c6-47fd-869f-c87884a1bbee)
+
+```
+be=BinaryEncoder()
+nd=be.fit_transform(df['Ord_2'])
+dfb=pd.concat([df,nd],axis=1)
+dfb1=df.copy()
+dfb
+```
+![image](https://github.com/user-attachments/assets/66790f66-9262-45ea-a19a-1e0cd24f30c0)
+```
+from category_encoders import TargetEncoder
+te=TargetEncoder()
+CC=df.copy()
+new=te.fit_transform(X=CC["City"],y=CC["Target"])
+CC=pd.concat([CC,new],axis=1)
+CC
+```
+![image](https://github.com/user-attachments/assets/a6c2ed31-8c12-4a72-8fb8-86dbe00dbba0)
+```
+import pandas as pd
+from scipy import stats
+import numpy as np
+df=pd.read_csv("/content/Data_to_Transform.csv")
+df
+```
+![image](https://github.com/user-attachments/assets/a6dec60b-b008-4c73-8778-e67d8f101b5f)
+```
+df.skew()
+```
+![image](https://github.com/user-attachments/assets/b70e6dd1-b61f-4387-9c91-e22635b32f89)
+```
+df["Highly Positive Skew"]=np.log(df["Highly Positive Skew"])
+df["Moderate Positive Skew"]=np.reciprocal(df["Moderate Positive Skew"] )
+df["Highly Positive Skew"]=np.sqrt(df["Highly Positive Skew"])
+df["Highly Positive Skew"]=np.square(df["Highly Positive Skew"])
+```
+```
+df.skew()
+```
+![image](https://github.com/user-attachments/assets/a3e45da3-8650-425b-b816-d9b329aeaefb)
+```
+df["Highly Positive Skew_boxcox"], parameters=stats.boxcox(df["Highly Positive Skew"])
+df ["Moderate Negative Skew_ yeojohnson"], parameters=stats.yeojohnson(df ["Moderate Negative Skew"])
+df
+```
+![image](https://github.com/user-attachments/assets/4b02e04b-1d4a-49a4-9dae-f9ab5cc5c635)
+```
+df.skew()
+```
+![image](https://github.com/user-attachments/assets/72043f33-344d-4265-9a35-8f7905ed83aa)
+```
+import seaborn as sns
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+sm.qqplot(df["Moderate Negative Skew"],line='45')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/1bbffcee-48d5-4e0c-abac-355a2d1acc79)
+
+```
+sm.qqplot(np.reciprocal(df["Moderate Negative Skew_1"]),line='45')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/f05787f2-575f-4928-941b-77a41d309c3f)
+```
+from sklearn.preprocessing import QuantileTransformer
+qt=QuantileTransformer(output_distribution='normal',n_quantiles=891)
+
+df["Moderate Negative Skew"]=qt.fit_transform(df[["Moderate Negative Skew"]])
+
+sm.qqplot(df["Moderate Negative Skew"],line='45')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/36a1b2ce-429b-44de-a643-7afab7855921)
+```
+df["Highly Negative Skew_1"]=qt.fit_transform(df[["Highly Negative Skew"]])
+sm.qqplot(df["Highly Negative Skew"],line='45')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/52ad574d-9bcf-4195-8be7-a2d066e6e08a)
+```
+sm.qqplot(df["Highly Negative Skew_1"],line='45')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/30d7c416-cc40-495c-b87c-6c12149dc245)
+```
+sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/c0125f74-161a-4b30-aeab-8e6d3d562b4d)
+
+# RESULT:
+Thus the given data, Feature Encoding, Transformation process and save the data to a file was performed successfully.
        
