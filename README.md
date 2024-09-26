@@ -91,7 +91,7 @@ pd.get_dummies(df2,columns=["nom_0"])
 pip install --upgrade category_encoders
 ```
 
-![image](https://github.com/user-attachments/assets/1d9cec81-a50d-45ad-b8bc-c41b72d1f3b1)
+![image](https://github.com/user-attachments/assets/88b9adf9-69b2-4cae-98f4-15cf4eb2b20c)
 
 ```
 be=BinaryEncoder()
