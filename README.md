@@ -64,6 +64,7 @@ dfc
 ```
 
 ![image](https://github.com/user-attachments/assets/e2cfa4c3-2bdc-414c-8049-94baec8b3143)
+
 ```
 from sklearn.preprocessing import OneHotEncoder
 ohe=OneHotEncoder(sparse=False)
@@ -89,7 +90,7 @@ pip install --upgrade category_encoders
 ```
 
 ![image](https://github.com/user-attachments/assets/1d9cec81-a50d-45ad-b8bc-c41b72d1f3b1)
-```
+
 ```
 be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
