@@ -63,7 +63,8 @@ dfc['ord_2']=le.fit_transform(dfc['ord_2'])
 dfc
 ```
 
-![image](https://github.com/user-attachments/assets/e2cfa4c3-2bdc-414c-8049-94baec8b3143)
+![image](https://github.com/user-attachments/assets/37a26cce-6e0e-4924-be87-08212b91893b)
+
 
 ```
 from sklearn.preprocessing import OneHotEncoder
