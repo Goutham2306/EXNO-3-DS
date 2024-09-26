@@ -73,7 +73,8 @@ enc=pd.DataFrame(ohe.fit_transform(df2[["nom_0"]]))
 
 ```
 
-![image](https://github.com/user-attachments/assets/e4d73d08-be72-4377-9d1d-1fdb0d6b7efc)
+![image](https://github.com/user-attachments/assets/68518e7b-c627-453c-a9db-6516bf9e2e99)
+
 ```
 df2=pd.concat([df2,enc],axis=1)
 df2
