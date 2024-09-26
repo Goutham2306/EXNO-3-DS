@@ -94,20 +94,12 @@ pip install --upgrade category_encoders
 ![image](https://github.com/user-attachments/assets/88b9adf9-69b2-4cae-98f4-15cf4eb2b20c)
 
 ```
-be=BinaryEncoder()
-nd=be.fit_transform(df['Ord_2'])
-dfb=pd.concat([df,nd],axis=1)
-dfb1=df.copy()
-dfb
-```
-![image](https://github.com/user-attachments/assets/66790f66-9262-45ea-a19a-1e0cd24f30c0)
-```
 from category_encoders import BinaryEncoder
 df=pd.read_csv("/content/data.csv")
 df
 ```
-
 ![image](https://github.com/user-attachments/assets/6be026a8-0c5c-4b3c-a28d-0c2c5e6bb130)
+
 ```
 be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
